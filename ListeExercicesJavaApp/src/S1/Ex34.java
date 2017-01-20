@@ -16,8 +16,23 @@ public class Ex34 {
             */
             String str;
             Scanner sc;
+            char monChar;
+            
             sc = new Scanner(System.in);
             System.out.println("Svp, rentrez une phrase ");
+            
+            str = sc.nextLine();
+            
+            for(int i=0;i<str.length();i++){
+                monChar = str.charAt(i);
+                
+                if(Character.isLetter(monChar)){
+                    System.out.print(monChar);
+                }
+                else{
+                    System.out.println();
+                }
+            }
             
                 
 	}
