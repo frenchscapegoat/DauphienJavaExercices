@@ -21,9 +21,9 @@ public class Ex36 {
     */
     public static void main(String args[]){
         
-        
         int nbMaxDiviseur;
         int tabNbMaxDiviseurs[] = new int[10000];
+        
         // On peut dire que pour l'instant, le plus grand diviseur de 1, c'est 1. Donc on a 1 nbMaxDiviseur !
         nbMaxDiviseur = 1;
         
@@ -34,8 +34,8 @@ public class Ex36 {
         for(int i=2;i<=10000;i++){
             int nbDiviseurDei = 0;
 
-            // On parcourt tous les diviseurs de i
-            for (int j=0;j<=i;j++){
+            // On parcourt tous les diviseurs de i (on évite le 0)
+            for (int j=1;j<=i;j++){
                 if (i%j == 0){
                     nbDiviseurDei+=1;
                 }
@@ -47,16 +47,17 @@ public class Ex36 {
             }
             
             // Enfin, on stocke dans le tableau, au range n-1
-            tabNbMaxDiviseurs[0] = nbDiviseurDei;
+            tabNbMaxDiviseurs[i-1] = nbDiviseurDei;
         }
         
         // Enfin, on affiche le résultat
-        System.out.println("Le nombre de diviseur le plus grand parmi les 10001 premiers entiers est" + Integer.toString(nbMaxDiviseur));
+        System.out.println("Le nombre de diviseur le plus grand parmi les 10001 premiers entiers est : " + nbMaxDiviseur);
         
+       // On parcourt tout notre tableau et on affiche si = nbmaxidivseurs 
+        System.out.println("On peut donc retrouver "+nbMaxDiviseur+" diviseurs chez les entiers suivants");
        for (int k=0;k<tabNbMaxDiviseurs.length;k++){
            if (tabNbMaxDiviseurs[k] == nbMaxDiviseur){
-               System.out.println(tabNbMaxDiviseurs[k]);
-
+               System.out.println(""+ k);
            }
        }
         
