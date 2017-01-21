@@ -57,7 +57,8 @@ public class Ex36 {
         System.out.println("On peut donc retrouver "+nbMaxDiviseur+" diviseurs chez les entiers suivants");
        for (int k=0;k<tabNbMaxDiviseurs.length;k++){
            if (tabNbMaxDiviseurs[k] == nbMaxDiviseur){
-               System.out.println(""+ k);
+               // On a stocké au rang k-1 ; il faut donc affiché la k+1e valeur !
+               System.out.println(""+ k+1);
            }
        }
         
