@@ -38,7 +38,8 @@ public class DiceRollStats {
            sc = getinfoRollCount(dice);
            
           //average = getAverageRollCount( dice );
-          System.out.printf("%10d%22.4f\n", dice, sc.getMean(),sc.getCount(),sc.getStandardDeviation(),sc.getMax());
+          System.out.printf("%10d%22.4f\n", dice, sc.getMean());
+          System.out.println("O"+sc.getCount()+"&"+sc.getStandardDeviation()+"|"+sc.getMax());
              // Use 10 spaces to output dice, and use 22 spaces to output
              // average, with 4 digits after the decimal.
        }
