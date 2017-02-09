@@ -46,29 +46,7 @@ public class DiceRollStats {
        }
    } 
    
-   /**
-    * Find the average number of times a pair of dice must be rolled to get
-    * a given total.  The experiment of rolling for the given total is
-    * repeated NUMBER_OF_EXPERIMENTS times and the average number of rolls
-    * over all the experiments is computed.
-    * Precondition:  The given total must be be between 2 and 12, inclusive.
-    * @param roll the total that we want to get on the dice
-    * @return the average number of rolls that it takes to get the specified
-    *    total
-    */
-   public static double getAverageRollCount( int roll ) {
-       int rollCountThisExperiment;  // Number of rolls in one experiment.
-       int rollTotal;  // Total number of rolls in all the experiments.
-       double averageRollCount;  // Average number of rolls per experiment.
-       
-       rollTotal = 0;
-       for ( int i = 0;  i < NUMBER_OF_EXPERIMENTS;  i++ ) {
-          rollCountThisExperiment = rollFor( roll );
-          rollTotal += rollCountThisExperiment;
-       }
-       averageRollCount = ((double)rollTotal) / NUMBER_OF_EXPERIMENTS;
-       return averageRollCount;
-   }
+
    
    /**
     * Simulates rolling a pair of dice until a given total comes up.
@@ -100,16 +78,14 @@ public class DiceRollStats {
    public static StatCalc getinfoRollCount( int roll ) {
        int rollCountThisExperiment;  // Number of rolls in one experiment.
        int rollTotal;  // Total number of rolls in all the experiments.
-       double averageRollCount;  // Average number of rolls per experiment.
-       StatCalc sc = new StatCalc();
+       //double averageRollCount;  // Average number of rolls per experiment.
        
+       StatCalc sc = new StatCalc();
        rollTotal = 0;
        for ( int i = 0;  i < NUMBER_OF_EXPERIMENTS;  i++ ) {
           rollCountThisExperiment = rollFor( roll );
-          //rollTotal += rollCountThisExperiment;
           sc.enter(rollCountThisExperiment);
        }
-       //averageRollCount = ((double)rollTotal) / NUMBER_OF_EXPERIMENTS;
        return sc;
    }
 }  // end DiceRollStats
