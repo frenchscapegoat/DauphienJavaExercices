@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package ex44;
+import ex51.PairOfDice;
 import ex52.StatCalc;
 /**
  *
@@ -29,19 +30,19 @@ public class DiceRollStats {
 
    public static void main(String[] args) {
        //double average;  // The average number of rolls to get a given total.
+       
        StatCalc sc = new StatCalc();
-
        
        System.out.println("Total On Dice     Average Number of Rolls");
        System.out.println("-------------     -----------------------");
        for ( int dice = 2;  dice <= 12;  dice++ ) {
            sc = getinfoRollCount(dice);
-           
-          //average = getAverageRollCount( dice );
-          System.out.printf("%10d%22.4f\n", dice, sc.getMean());
-          System.out.println("O"+sc.getCount()+"&"+sc.getStandardDeviation()+"|"+sc.getMax());
-             // Use 10 spaces to output dice, and use 22 spaces to output
-             // average, with 4 digits after the decimal.
+           //average = getAverageRollCount( dice );
+           System.out.printf("%10d%22.4f\n", dice, sc.getMean());
+           System.out.println("Nb de de valeurs : "+sc.getCount());
+           System.out.println("St DEV : " +sc.getStandardDeviation());
+           System.out.println("Max : "+sc.getMax());
+           System.out.println(" _______________________________ ");
        }
    } 
    
@@ -79,18 +80,20 @@ public class DiceRollStats {
     *    that could possibly come up on a pair of dice
     */
    public static int rollFor( int N ) {
-       if ( N < 2 || N > 12 )
-          throw new IllegalArgumentException("Impossible total for a pair of dice.");
-       int die1, die2;  // Numbers between 1 and 6 representing the dice.
-       int roll;        // Total showing on dice.
-       int rollCt;      // Number of rolls made.
+       if ( N < 2 || N > 12 ){
+           throw new IllegalArgumentException("Impossible total for a pair of dice.");
+       }
+       
+        // DECLARATION
+       int roll;        // Entier stockant la somme de 2 dés
+       int rollCt;      // Compteur des lancés de dés nécessaires pour obtenir N
        rollCt = 0;
        do {
-          die1 = (int)(Math.random()*6) + 1;
-          die2 = (int)(Math.random()*6) + 1;
-          roll = die1 + die2;
+          PairOfDice paireDede = new PairOfDice(); // On crée une paire de dé 
+          roll = paireDede.getTotal();
           rollCt++;
        } while ( roll != N );
+       
        return rollCt;
    }
    
