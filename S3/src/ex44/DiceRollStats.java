@@ -8,15 +8,20 @@ import ex51.PairOfDice;
 import ex52.StatCalc;
 /**
  *
- * @author Romano
+ * @author Romano & Jules
  */
 /**
- * This program performs the following type of experiment:  Given a desired 
- * total roll, such as 7, roll a pair of dice until the given total comes up, 
- * and count how many rolls are necessary.  Now do that over and over, and
- * find the average number of rolls.  The number of times the experiment is 
- * repeated is given by the constant, NUMBER_OF_EXPERIMENTS.  The average is
- * computed and printed out for each possible roll = 2, 3, ..., 12. 
+ * Ce programme est basé sur le code de lexercice 4.4
+ * La main renvoie pour un total de de dés donné en entrée,
+ * le nombre de lancés nécessaire pour obtenir ce total.
+ * On boucle cela sur "NUMBER_OF_EXPERIMENTS" (= 10 000 ici)
+ * On ressort un affichage sur chaque total possible,
+ * moyenne
+ * Nb lancés effectués (ici 10000)
+ * ecart type
+ * max de lancés nécessaire pour trouver le total
+ * 
+ 
  */
 
 public class DiceRollStats {
