@@ -82,11 +82,8 @@ public class DiceRollStats {
    
    public static StatCalc getinfoRollCount( int roll ) {
        int rollCountThisExperiment;  // Number of rolls in one experiment.
-       int rollTotal;  // Total number of rolls in all the experiments.
-       //double averageRollCount;  // Average number of rolls per experiment.
        
        StatCalc sc = new StatCalc();
-       rollTotal = 0;
        for ( int i = 0;  i < NUMBER_OF_EXPERIMENTS;  i++ ) {
           rollCountThisExperiment = rollFor( roll );
           sc.enter(rollCountThisExperiment);
