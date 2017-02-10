@@ -5,6 +5,9 @@
  */
 package ex56;
 
+import ex57.IntQuestion;
+import ex57.SubstractionQuestion;
+
 /**
  *
  * @author Romano
@@ -17,7 +20,7 @@ package ex56;
  */
 public class AdditionQuizWithObjects {
     
-    private static AdditionQuestion[] questions;  // The questions for the quiz
+    private static IntQuestion[] questions;  // The questions for the quiz
 
     private static int[] userAnswers;   // The user's answers to the ten questions.
     
@@ -36,9 +39,13 @@ public class AdditionQuizWithObjects {
      * Creates the array of objects that holds the quiz questions
      */
     private static void createQuiz() {
-        questions = new AdditionQuestion[10];
-        for ( int i = 0; i < 10; i++ ) {
+        questions = new IntQuestion[10];
+        for ( int i = 0; i < 5; i++ ) {
             questions[i] = new AdditionQuestion();
+        }
+        // On va ajouter 5 soustractions
+        for ( int i = 5; i < 10; i++ ) {
+            questions[i] = new SubstractionQuestion();
         }
     }
     
