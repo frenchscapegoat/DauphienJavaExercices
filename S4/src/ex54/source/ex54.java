@@ -17,7 +17,7 @@ public class ex54 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // On crée un objet BlackjackHand ; puis un Deck
+        
         
         /* 
         Ensuite on récupère un random int entre 2 et 6
@@ -25,7 +25,12 @@ public class ex54 {
         On fait un println de la mian (ou des cartes de la main)
         Puis un println de BlackJackHand.getBlackjackValue()
         */
-        BlackjackHand maMain = new BlackjackHand();
+        
+        // On crée un objet BlackjackHand ; puis un Deck
+        BlackjackHand maMainBlackjackHand = new BlackjackHand();
+        
+        // On crée un random entre 1 et 6
+        die1 = (int)(Math.random()*6) + 1;
     }
     
 }
