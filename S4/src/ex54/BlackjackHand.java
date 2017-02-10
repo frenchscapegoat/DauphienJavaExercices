@@ -1,3 +1,5 @@
+package ex54;
+
 public class BlackjackHand extends Hand {
 
     /**

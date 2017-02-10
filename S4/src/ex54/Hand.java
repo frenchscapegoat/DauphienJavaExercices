@@ -1,3 +1,4 @@
+package ex54;
 
 /**
  * An object of type Hand represents a hand of cards.  The
