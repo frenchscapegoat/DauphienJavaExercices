@@ -43,25 +43,29 @@ public class ex54 {
         int maVal = borneMin + r.nextInt(borneSup-borneMin);
         Card laCarte;
         
+        // On va mélanger le deck
+        monDeck.shuffle();
+        
         // On récupère autant de carte du deck que le random vient de nous dire
         for (int i=0;i< maVal;i++){
             if (monDeck.cardsLeft() != 0){
                 laCarte = monDeck.dealCard();   // Vous autorisez à créer des variables de lisibilité ?
                 maMainBlackjackHand.addCard(laCarte);
             }
+        }
             
         // On fait un affichage de la main
-        for (int j=0;i<maVal;i++){
+        for (int j=0;j<maMainBlackjackHand.getCardCount();j++){
             System.out.println("Ma main : "+ maMainBlackjackHand.getCard(j));
         }
-        
+
         // On affiche le score
         System.out.println("Score Blackjack : "+ maMainBlackjackHand.getBlackjackValue());
-        }
+        
         
         // On demande si le joueur veut continuer
             System.out.println("Tapez 'o' si vous voulez continuer : ");
-            recommencer = (sc.nextLine() == "o");
+            recommencer = ("o".equals(sc.nextLine()));
             
         
     }while (recommencer);
