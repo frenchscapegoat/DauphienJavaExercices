@@ -9,6 +9,7 @@ import ex54.BlackjackHand;
 import ex54.Card;
 import ex54.Deck;
 import java.util.Random;
+import java.util.Scanner;
 
 /**
  *
@@ -20,11 +21,13 @@ public class ex54 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        boolean recommencer = false; // Gain en lisibilité pour la boucle do..while
+        Scanner sc = new Scanner(System.in);
         
-        
+        do{
         /* 
         
-        On fait un println de la mian (ou des cartes de la main)
+        On fait un println de la main (ou des cartes de la main)
         Puis un println de BlackJackHand.getBlackjackValue()
         */
         
@@ -56,7 +59,12 @@ public class ex54 {
         System.out.println("Score Blackjack : "+ maMainBlackjackHand.getBlackjackValue());
         }
         
+        // On demande si le joueur veut continuer
+            System.out.println("Tapez 'o' si vous voulez continuer : ");
+            recommencer = (sc.nextLine() == "o");
+            
         
+    }while (recommencer);
         
         
         
