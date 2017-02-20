@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ex54.source;
 
 import ex54.BlackjackHand;
@@ -17,18 +12,15 @@ import java.util.Scanner;
  */
 public class ex54 {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
+        // recommencer is used to add some "readability" in the do..while loop
         boolean recommencer = false; // Gain en lisibilité pour la boucle do..while
         Scanner sc = new Scanner(System.in);
         
         do{
         /* 
+        The goal is to create 2 objects : a Deck and a BlackJackHand.
         
-        On fait un println de la main (ou des cartes de la main)
-        Puis un println de BlackJackHand.getBlackjackValue()
         */
         
         // On crée un objet BlackjackHand ; puis un Deck
@@ -37,15 +29,21 @@ public class ex54 {
         
         
         // On crée un random entre 1 et 6
+        // We create a random integer between 1 and 6
         Random r = new Random();
         final int borneSup = 6;
         final int borneMin = 2;
         int maVal = borneMin + r.nextInt(borneSup-borneMin);
+        
         Card laCarte;
         
         // On va mélanger le deck
         monDeck.shuffle();
         
+        /**
+         * First,
+         * We add the same number of card as the random "maVal" in our hand
+        */
         // On récupère autant de carte du deck que le random vient de nous dire
         for (int i=0;i< maVal;i++){
             if (monDeck.cardsLeft() != 0){
@@ -53,7 +51,11 @@ public class ex54 {
                 maMainBlackjackHand.addCard(laCarte);
             }
         }
-            
+        
+        /**
+         * Then,
+         * We print each card of our hand to the output and the score
+        */
         // On fait un affichage de la main
         for (int j=0;j<maMainBlackjackHand.getCardCount();j++){
             System.out.println("Ma main : "+ maMainBlackjackHand.getCard(j));
@@ -62,7 +64,10 @@ public class ex54 {
         // On affiche le score
         System.out.println("Score Blackjack : "+ maMainBlackjackHand.getBlackjackValue());
         
-        
+        /**
+         * Finally,
+         * We ask the user if he wants to start again
+        */
         // On demande si le joueur veut continuer
             System.out.println("Tapez 'o' si vous voulez continuer : ");
             recommencer = ("o".equals(sc.nextLine()));
