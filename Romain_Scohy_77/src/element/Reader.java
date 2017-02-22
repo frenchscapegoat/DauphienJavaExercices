@@ -44,14 +44,15 @@ public class Reader {
 				 * Converts all accented characters into their deAccented
 				 * counterparts followed by their combining diacritics.
 				 */
+			
 				String strTemp = Normalizer.normalize(str, Normalizer.Form.NFD);
 				Pattern pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+");
 				str = pattern.matcher(strTemp).replaceAll("");
 
 				/**
-				 * Replaces non-alphabetics characters by a space Replaces the
-				 * duplication spaces by only one space Puts all the letters in
-				 * lower case
+				 * Replaces non-alphabetics characters by a space 
+				 * Replaces the duplication spaces by only one space
+				 * Puts all the letters in lower case
 				 */
 				String[] words = str.replaceAll("[^'a-zA-Z0-9]", " ").replaceAll("( ){2,}", " ").toLowerCase()
 						.split(" ");
