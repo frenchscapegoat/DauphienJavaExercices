@@ -1,5 +1,7 @@
 package user;
-
+/**
+ * @author Caroline VONG
+ */
 import calculator.Reader;
 import calculator.SetCalculator;
 

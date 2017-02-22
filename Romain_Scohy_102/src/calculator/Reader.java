@@ -13,13 +13,18 @@ public class Reader {
 	 */
 	public void readSet() {
 		sc = new Scanner(System.in);
+		
+		// theSet is a string which contains both sets
 		String theSet = sc.nextLine();
 		/**
 		 * If the format is correct, it calculates the operation on sets, if
 		 * not, it asks the user to try again
 		 */
-		if (verifySet(theSet) == true) {
+		if (verifySet(theSet)) {
+			// we creat a new SetCalculator, which helps us to calculate the final set
 			SetCalculator calculator = new SetCalculator();
+			
+			// We separate the
 			calculator.separateSets(theSet);
 			calculator.calculateOnTwoSets();
 

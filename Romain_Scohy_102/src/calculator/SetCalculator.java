@@ -20,8 +20,9 @@ public class SetCalculator {
 		/**
 		 * Reads the operator
 		 */
-		this.operator = 'e';
-
+		this.operator = 'e'; // e is an outlier
+		
+		// First, we find the correct operation
 		if (theSet.contains("-")) {
 			this.operator = '-';
 		}
@@ -31,26 +32,29 @@ public class SetCalculator {
 		if (theSet.contains("*")) {
 			this.operator = '*';
 		}
+		
 		/**
 		 * Removes blank spaces
 		 */
 		String theSecondSet = theSet.replaceAll(" ", "");
+		
 		/**
 		 * Splits the sets by the operator
 		 */
 		String[] tabOfSets = theSecondSet.split("(\\+|\\-|\\*)");
+		
 		/**
 		 * For each set in the table we need to take every number and put it in
 		 * a TreeSet (one for each set in the table)
 		 */
 		for (int i = 0; i < tabOfSets.length; i++) {
-			System.out.println("test");
-			System.out.println(tabOfSets[i]);
+			
+			//System.out.println(tabOfSets[i]);
 			/**
 			 * Removes the brackets
 			 */
 			tabOfSets[i] = tabOfSets[i].replaceAll("(\\[|\\])", "");
-			System.out.println("enleve les bracket" + tabOfSets[i]);
+			//System.out.println("enleve les bracket" + tabOfSets[i]);
 
 			TreeSet<Integer> treeSetOfNumbers = new TreeSet<>();
 			/**
@@ -61,22 +65,23 @@ public class SetCalculator {
 				/**
 				 * If it is a number, put it on the list
 				 */
-				if (Character.isDigit(tabOfSets[i].charAt(j)) == true) {
-					System.out.println("digit");
+				if (Character.isDigit(tabOfSets[i].charAt(j))) {
+					//System.out.println("digit");
 					treeSetOfNumbers.add(Character.getNumericValue(tabOfSets[i].charAt(j)));
 				}
-
+/*
 				else {
 					System.out.println("non digit");
 				}
+*/
 			} // end for every element of the set
 
-			System.out.println();
+			
 			/**
 			 * Puts the treeSetOfNumbers into the listOfSet
 			 */
 			this.getListOfSet().add(treeSetOfNumbers);
-			System.out.println(this.getListOfSet());
+			//System.out.println(this.getListOfSet());
 
 		} // end for all sets in the table
 		return this.getListOfSet();
@@ -89,12 +94,14 @@ public class SetCalculator {
 	 * @param operator
 	 */
 	public void calculateOnTwoSets() {
-
+		
+		// We get both sets and create 2 var to gain "readability"
 		TreeSet<Integer> firstSet = new TreeSet<>();
 		firstSet = getListOfSet().get(0);
 		TreeSet<Integer> secondSet = new TreeSet<>();
 		secondSet = getListOfSet().get(1);
 
+		// The core : we calculate both sets
 		switch (this.operator) {
 
 		case '+':
