@@ -78,7 +78,7 @@ public class Reader {
 	 *            list of words we want to treat
 	 */
 	public void removeDuplicationWords(List<String> listOfWords) {
-		System.out.println("Begining: The first list");
+		System.out.println("Deleting duplicates words");
 		System.out.println(listOfWords);
 		System.out.println(listOfWords.size());
 		/**
@@ -89,13 +89,13 @@ public class Reader {
 			rightList.add(word);
 		}
 
-		System.out.println("What we want: Test with Hashset");
+		//System.out.println("What we want: Test with Hashset");
 		System.out.println(rightList.size());
 		System.out.println(rightList);
 		/**
 		 * Removes the duplications from the list of words
 		 */
-		System.out.println("What we do...");
+		//System.out.println("What we do...");
 		for (int i = listOfWords.size() - 1; i >= 0; i--) {
 			for (int j = listOfWords.size() - 2; j >= 0; j--) {
 				if (listOfWords.get(i).compareTo(listOfWords.get(j)) == 0 && j != i) {
