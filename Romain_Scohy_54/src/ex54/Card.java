@@ -136,7 +136,8 @@ public class Card {
      * are: "Queen of Hearts", "10 of Diamonds", "Ace of Spades",
      * "Joker", "Joker #2"
      */
-    public String toString() {
+    @Override
+	public String toString() {
         if (suit == JOKER) {
             if (value == 1)
                 return "Joker";
